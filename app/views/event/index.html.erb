@@ -13,10 +13,11 @@
           
 <nav id="menubar">
 <ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
+<li><%= link_to 'ホーム', root_path %></li>
+
 <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "#"  %></li>
+        <li><%= link_to 'イベント投稿', root_path %></li>
+        <li><%= link_to current_user.nickname, root_path  %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path %></li>

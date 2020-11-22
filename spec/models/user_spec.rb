@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 describe User do
   before do
@@ -98,7 +97,7 @@ describe User do
         @user.gender = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Gender can't be blank")
-      end  
+      end
     end
   end
 end
