@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Planning</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Sports planning</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= javascript_pack_tag 'application' %>
+</head>
+<header class="header">
+      <div class="inner">
+        <div class="nav">
+        
+ 
+        </div>
+      </div>
+    </header>
+<body>
+  <%= yield %>
+</body>
 
-  <body>
-    <%= yield %>
-  </body>
 </html>
