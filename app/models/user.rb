@@ -15,11 +15,7 @@ class User < ApplicationRecord
         end
         VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i.freeze
         validates :password, format: { with: VALID_PASSWORD_REGEX }
-
-        
-
         enum gender: { man: 0, woman: 1}
-          
        
       
         has_many :events
