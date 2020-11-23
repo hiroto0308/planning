@@ -3,31 +3,23 @@
 
 <div id="container">
 
-
-
-          <header>
-            <%= link_to image_tag("logo4.png", class: :logo), root_path %>
-            <aside id="mainimg"><%= link_to image_tag("test3.jpg", class: :img) %></aside>
-            
-           </header>   
-          
+<header>
+  <%= link_to image_tag("logo4.png", class: :logo), root_path %>
+  <aside id="mainimg"><%= link_to image_tag("test3.jpg", class: :img) %></aside>         
 <nav id="menubar">
 <ul>
-<li><%= link_to 'ホーム', root_path %></li>
-
-<% if user_signed_in? %>
-        <li><%= link_to 'イベント投稿', root_path %></li>
+        <li><%= link_to 'ホーム', root_path %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'イベント投稿',  new_event_path %></li>
         <li><%= link_to current_user.nickname, root_path  %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path %></li>
         <li><%= link_to '新規登録', new_user_registration_path %></li>
       <% end %>
-
-
 </ul>
 </nav>
-
+</header> 
 <div id="contents">
 
 <section id="new">

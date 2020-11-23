@@ -1,0 +1,131 @@
+<header>
+  <%= link_to image_tag("logo4.png", class: :logo), root_path %>
+           
+<nav id="menubar">
+<ul>
+        <li><%= link_to 'ホーム', root_path %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'イベント投稿', new_event_path %></li>
+        <li><%= link_to current_user.nickname, root_path  %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <li><%= link_to '新規登録', new_user_registration_path %></li>
+      <% end %>
+</ul>
+</nav>
+</header> 
+
+<div class="items-sell-main">
+    <h2 class="items-sell-title">イベントの情報を入力</h2>
+    <%= form_with model: @event, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model:@event %>
+
+    
+    <%# イベント名とイベント説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        イベント名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :product, class:"items-text", id:"item-name", placeholder:"イベント名（必須 15文字まで)", maxlength:"15" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          イベントの詳細
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :introduction, class:"items-text", id:"item-info", placeholder:"イベントの説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    
+
+    <%# イベントの詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">イベントの詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          所要時間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:time_all_id, TimeAll.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+         
+         <div class="weight-bold-text">
+          開催の地域
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:delivery_area_id, DeliveryArea.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+
+        <div class="weight-bold-text">
+          開始日
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.date_field :start, class: 'form-control' %>
+      </div> 
+    </div>
+    <%# /商品の詳細 %>
+
+    
+
+    <%# 販売価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>販売価格<br>(¥200〜99,999)</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+        </div>
+        <div class="price-content">
+          <span>手数料 (5%)</span>
+          <span>
+            <span id='add-tax-price'></span>円
+          </span>
+        </div>
+        <div class="price-content">
+          <span>イベント利益</span>
+          <span>
+            <span id='profit'></span>円
+        </div>
+        </span>
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている行為</a>
+       
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        詳しい開催地は詳細の方へご記載ください。
+      
+      </p>
+      <p class="sentence">
+        また、イベント主催をもちまして
+        <a href="#">利用規約</a>
+        に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
