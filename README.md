@@ -33,8 +33,7 @@
 | category_id      | integer    | null: false       |
 | price            | integer    | null: false       |
 | delivery_area_id | integer    | null: false       |
-| time_id          | integer    | null: false       |
-| end              | datetime   | null: false       |
+| time_all_id      | integer    | null: false       |
 | start            | datetime   | null: false       |
 | user             | references | foreign_key: true |
 
