@@ -66,6 +66,11 @@ RSpec.describe Event, type: :model do
         @event.valid?
         expect(@event.errors.full_messages).to include('User must exist')
       end
+      it 'time_startが空の場合保存出来ない' do
+        @event.time_start = ''
+        @event.valid?
+        expect(@event.errors.full_messages).to include("Time start can't be blank")
+      end  
     end
   end
 end

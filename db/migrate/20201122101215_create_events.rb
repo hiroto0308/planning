@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.integer     :time_all_id,            null: false       
       t.datetime    :start,                  null: false       
       t.references  :user,                   foreign_key: true 
+      t.time        :time_start,             null: false
       t.timestamps
     end
   end

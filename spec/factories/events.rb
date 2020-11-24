@@ -7,6 +7,7 @@ FactoryBot.define do
     price { 500 }
     delivery_area_id { 2 }
     start { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default) }
+    time_start { "11:00:00" }
     association :user
   end
 end

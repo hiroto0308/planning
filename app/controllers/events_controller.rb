@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -19,6 +20,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit( :product, :introduction, :category_id,  :price, :time_all_id, :delivery_area_id, :start).merge(user_id: current_user.id)
+    params.require(:event).permit( :product, :introduction, :category_id,  :price, :time_all_id, :delivery_area_id, :start, :time_start).merge(user_id: current_user.id)
   end
 end
