@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @events = Event.includes(:user).order(created_at: :desc)
   end
@@ -16,6 +17,9 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end  
 
   private
 
