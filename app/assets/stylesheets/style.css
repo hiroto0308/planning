@@ -280,3 +280,30 @@ body {
 .ws,.wl {width: 94%;}
 
 }
+
+.item-red-btn {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0px;
+	padding: 2vh 10vw;	
+	border: 1px solid #ccc;
+  background: #f1e767;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  -webkit-box-shadow: inset 1px 1px 1px #fff;
+	box-shadow: inset 1px 1px 1px #fff;
+	display: block;
+}
+
+.item-red-btn:hover {
+	background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+}
+
+.or-text {
+	font-size: 20px;
+	text-align: center;
+}
