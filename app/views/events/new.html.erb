@@ -65,7 +65,12 @@
           開始日
           <span class="indispensable">必須</span>
         </div>
-        <%= f.date_field :start, class: 'form-control' %>
+        <%= f.date_field :start, class: 'items-text' %>
+        <div class="weight-bold-text">
+          開始時間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.time_select :time_start, class: 'items-text' %>
       </div> 
     </div>
     <%# /商品の詳細 %>

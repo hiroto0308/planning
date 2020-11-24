@@ -19,5 +19,6 @@ class Event < ApplicationRecord
     validates :price, numericality: { greater_than_or_equal_to: 200, less_than_or_equal_to: 99_999 },
                       format: { with: /\A[0-9]+\z/ }
     validates :start
+    validates :time_start
   end  
 end

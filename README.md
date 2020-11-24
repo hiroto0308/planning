@@ -36,6 +36,8 @@
 | time_all_id      | integer    | null: false       |
 | start            | datetime   | null: false       |
 | user             | references | foreign_key: true |
+| time_start       | time       | null: false       |
+
 
 
 ### Association
