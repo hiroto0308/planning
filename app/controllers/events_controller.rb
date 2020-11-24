@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_event, only: [:destroy, :show]
+  before_action :login_user, only: [:destroy, :edit]
+  
   def index
     @events = Event.includes(:user).order(created_at: :desc)
   end
@@ -18,12 +21,26 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    
   end  
+
+  def destroy
+    
+    @event.destroy
+    redirect_to root_path
+  end
 
   private
 
   def event_params
     params.require(:event).permit( :product, :introduction, :category_id,  :price, :time_all_id, :delivery_area_id, :start, :time_start).merge(user_id: current_user.id)
   end
+
+  def login_user
+    redirect_to root_path unless current_user.id == @event.user_id
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end  
 end
