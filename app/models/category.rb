@@ -7,4 +7,5 @@ class Category < ActiveHash::Base
   ]
   include ActiveHash::Associations
   has_many :events
+  has_many :comments
 end
