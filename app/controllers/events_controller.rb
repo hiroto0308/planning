@@ -21,6 +21,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @event.comments.includes(:user).order(created_at: :desc)
   end 
   
   def edit
