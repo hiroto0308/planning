@@ -13,7 +13,7 @@
 **テスト用アカウント**
 アドレス: test@com
 ID     : o09o09
-** URL **
+**URL**
 https://planning0308.herokuapp.com/
 
 ## 実装した機能
